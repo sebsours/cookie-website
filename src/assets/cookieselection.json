@@ -1,0 +1,93 @@
+{
+    "classics": {
+        "type": "classics",
+        "list": [
+            {
+                "name": "cookie1",
+                "description": "This is a cookie1",
+                "price": 1.00,
+                "imgURL": "cookie.jpg"
+            },
+            {
+                "name": "cookie2",
+                "description": "This is a cookie2",
+                "price": 1.00,
+                "imgURL": "cookie.jpg"
+            }
+        ]    
+    },
+
+    "favorites": {
+        "type": "favorites",
+        "list": [
+            {
+                "name": "cookie1",
+                "description": "This is a cookie1",
+                "price": 1.00,
+                "imgURL": "cookie.jpg"
+            }
+        ]
+    },
+    "vegan":   {
+        "type": "vegan",
+        "list": [
+            {
+                "name": "cookie1",
+                "description": "This is a cookie1",
+                "price": 1.00,
+                "imgURL": "cookie.jpg"
+            },
+            {
+                "name": "cookie2",
+                "description": "This is a cookie2",
+                "price": 2.00,
+                "imgURL": "cookie.jpg"
+            },
+            {
+                "name": "cookie3",
+                "description": "This is a cookie3",
+                "price": 3.00,
+                "imgURL": "cookie.jpg"
+            }
+        ]
+    },
+    "seasonal": {
+        "type": "seasonal",
+        "list": [
+            {
+                "name": "cookie1",
+                "description": "This is a cookie1",
+                "price": 1.00,
+                "imgURL": "cookie.jpg"
+            }
+        ]
+    },
+    "deals": {
+        "type": "deals",
+        "list": [
+            {
+                "name": "cookie1",
+                "description": "This is a cookie1",
+                "price": 15.00,
+                "imgURL": "cookie.jpg"
+            },
+            {
+                "name": "cookie2",
+                "description": "This is a cookie2",
+                "price": 13.00,
+                "imgURL": "cookie.jpg"
+            }
+        ]
+    },
+    "other": {
+        "type": "other",
+        "list": [
+            {
+                "name": "cookie1",
+                "description": "This is a cookie1",
+                "price": 30.00,
+                "imgURL": "cookie.jpg"
+            }
+        ]
+    }
+}
