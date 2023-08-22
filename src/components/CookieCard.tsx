@@ -6,14 +6,18 @@ interface CookieCardProps {
     name: string,
     description: string,
     price: string, 
-    imgURL: string
+    imgURL: string,
+    openCookieDialog: () => void,
 }
 
 
 const CookieCard: React.FC<CookieCardProps> = (props:CookieCardProps) => {
     return ( 
         <div className="relative">
-            <button className="absolute bottom-0 right-0 bg-secondary rounded-full p-2 peer hover:bg-accent transition duration-300 ease-in"><Plus className="text-white" /></button>
+            <button className="absolute -bottom-2 -right-2 bg-secondary rounded-full p-2 peer hover:bg-accent transition duration-300 ease-in"
+            onClick={props.openCookieDialog}>
+                <Plus className="text-white" />
+            </button>
             <div className="h-96 w-64 border-2 border-secondary rounded-lg py-4 px-8 peer-hover:border-accent transition ease-in duration-300">
                 <img src={cookieImg} alt="" />
                 <div className="pt-3 flex flex-col gap-1">
