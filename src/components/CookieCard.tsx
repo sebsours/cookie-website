@@ -5,7 +5,7 @@ import { Plus } from "lucide-react"
 interface CookieCardProps {
     name: string,
     description: string,
-    price: number, 
+    price: string, 
     imgURL: string
 }
 
@@ -19,7 +19,7 @@ const CookieCard: React.FC<CookieCardProps> = (props:CookieCardProps) => {
                 <div className="pt-3 flex flex-col gap-1">
                     <span className="text-lg font-extrabold tracking-wide">{props.name}</span>
                     <p className="text-xs font-semibold tracking-wide">{props.description}</p>
-                    <span className="font-extrabold tracking-wide pt-10">{props.price}</span>
+                    <span className="font-extrabold tracking-wide pt-10">${props.price}</span>
                 </div>
                 
                 

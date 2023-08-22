@@ -11,7 +11,7 @@ interface SectionProps {
 interface List {
     name: string,
     description: string,
-    price: number,
+    price: string,
     imgURL: string
 }
 

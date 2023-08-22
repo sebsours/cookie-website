@@ -5,13 +5,13 @@
             {
                 "name": "cookie1",
                 "description": "This is a cookie1",
-                "price": 1.00,
+                "price": "1.00",
                 "imgURL": "cookie.jpg"
             },
             {
                 "name": "cookie2",
                 "description": "This is a cookie2",
-                "price": 1.00,
+                "price": "1.00",
                 "imgURL": "cookie.jpg"
             }
         ]    
@@ -23,7 +23,7 @@
             {
                 "name": "cookie1",
                 "description": "This is a cookie1",
-                "price": 1.00,
+                "price": "1.00",
                 "imgURL": "cookie.jpg"
             }
         ]
@@ -34,19 +34,19 @@
             {
                 "name": "cookie1",
                 "description": "This is a cookie1",
-                "price": 1.00,
+                "price": "1.00",
                 "imgURL": "cookie.jpg"
             },
             {
                 "name": "cookie2",
                 "description": "This is a cookie2",
-                "price": 2.00,
+                "price": "2.00",
                 "imgURL": "cookie.jpg"
             },
             {
                 "name": "cookie3",
                 "description": "This is a cookie3",
-                "price": 3.00,
+                "price": "3.00",
                 "imgURL": "cookie.jpg"
             }
         ]
@@ -57,7 +57,7 @@
             {
                 "name": "cookie1",
                 "description": "This is a cookie1",
-                "price": 1.00,
+                "price": "1.00",
                 "imgURL": "cookie.jpg"
             }
         ]
@@ -68,13 +68,13 @@
             {
                 "name": "cookie1",
                 "description": "This is a cookie1",
-                "price": 15.00,
+                "price": "15.00",
                 "imgURL": "cookie.jpg"
             },
             {
                 "name": "cookie2",
                 "description": "This is a cookie2",
-                "price": 13.00,
+                "price": "13.00",
                 "imgURL": "cookie.jpg"
             }
         ]
@@ -85,7 +85,7 @@
             {
                 "name": "cookie1",
                 "description": "This is a cookie1",
-                "price": 30.00,
+                "price": "30.00",
                 "imgURL": "cookie.jpg"
             }
         ]
