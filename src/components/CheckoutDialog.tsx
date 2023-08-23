@@ -4,9 +4,11 @@ import { LogOut  } from "lucide-react";
 interface CheckoutDialog {
     open: boolean;
     handleOpen: () => void;
+    items: Map<string, number>
 }
 
 const CheckoutDialog:React.FC<CheckoutDialog> = (props:CheckoutDialog) => {
+    console.log(props.items)
     return ( 
         <Dialog open={props.open} size="xxl" handler={props.handleOpen} className="font-poppins">
             <DialogHeader className="font-poppins">
@@ -15,7 +17,11 @@ const CheckoutDialog:React.FC<CheckoutDialog> = (props:CheckoutDialog) => {
             </DialogHeader>
 
             <DialogBody className="font-poppins">
-                This is where you pay
+                <ul>
+                    {[...props.items.keys()].map(cookieName => (
+                        <li>{cookieName} - {props.items.get(cookieName)}</li>
+                    ))}
+                </ul>
             </DialogBody>
 
             <DialogFooter>

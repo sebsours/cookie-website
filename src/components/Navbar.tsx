@@ -4,9 +4,10 @@ import { Badge } from "@material-tailwind/react";
 interface NavbarProps {
     openDrawer: () => void,
     openCheckout: () => void,
+    numItems: number
 }
 
-const Navbar: React.FC<NavbarProps> = ({ openDrawer, openCheckout }) => {
+const Navbar: React.FC<NavbarProps> = ({ openDrawer, openCheckout, numItems }) => {
     return (  
         <div className="w-full h-16 bg-primary flex justify-between px-4 fixed z-10">
             <ul className="h-full flex flex-row items-center gap-3">
@@ -18,7 +19,7 @@ const Navbar: React.FC<NavbarProps> = ({ openDrawer, openCheckout }) => {
 
             <ul className="h-full flex flex-row items-center">
                 <li onClick={openCheckout}>
-                    <Badge content="5" className="min-w-[20px] min-h-[20px]">
+                    <Badge content={numItems} className="min-w-[20px] min-h-[20px]">
                         <ShoppingCart className="hover:cursor-pointer"/>
                     </Badge>
                     

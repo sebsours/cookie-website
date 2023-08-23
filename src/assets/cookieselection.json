@@ -3,14 +3,14 @@
         "type": "classics",
         "list": [
             {
-                "name": "cookie1",
-                "description": "This is a cookie1",
-                "price": "1.00",
+                "name": "Chocolate Chip",
+                "description": "This is a chocolate chip",
+                "price": "1.01",
                 "imgURL": "cookie.jpg"
             },
             {
-                "name": "cookie2",
-                "description": "This is a cookie2",
+                "name": "Sugar Cookie",
+                "description": "This is a sugar cookie",
                 "price": "1.00",
                 "imgURL": "cookie.jpg"
             }
@@ -21,8 +21,8 @@
         "type": "favorites",
         "list": [
             {
-                "name": "cookie1",
-                "description": "This is a cookie1",
+                "name": "Double Trouble",
+                "description": "This is a chocolate chunk with a brownie baked in",
                 "price": "1.00",
                 "imgURL": "cookie.jpg"
             }
@@ -32,20 +32,20 @@
         "type": "vegan",
         "list": [
             {
-                "name": "cookie1",
-                "description": "This is a cookie1",
+                "name": "Vegan Chocolate Chip",
+                "description": "This is a vegan chocolate chip",
                 "price": "1.00",
                 "imgURL": "cookie.jpg"
             },
             {
-                "name": "cookie2",
-                "description": "This is a cookie2",
+                "name": "Vegan Snickerdoodle",
+                "description": "This is a vegan snickerdoodle",
                 "price": "2.00",
                 "imgURL": "cookie.jpg"
             },
             {
-                "name": "cookie3",
-                "description": "This is a cookie3",
+                "name": "Vegan Banana",
+                "description": "This is a banana cookie",
                 "price": "3.00",
                 "imgURL": "cookie.jpg"
             }
@@ -55,8 +55,8 @@
         "type": "seasonal",
         "list": [
             {
-                "name": "cookie1",
-                "description": "This is a cookie1",
+                "name": "Pumpkin Spice",
+                "description": "This is a pumpkin spice cookie",
                 "price": "1.00",
                 "imgURL": "cookie.jpg"
             }
@@ -83,8 +83,8 @@
         "type": "other",
         "list": [
             {
-                "name": "cookie1",
-                "description": "This is a cookie1",
+                "name": "Cookie Cake",
+                "description": "This is a cookie cake",
                 "price": "30.00",
                 "imgURL": "cookie.jpg"
             }

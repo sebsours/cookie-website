@@ -7,6 +7,7 @@ interface SectionProps {
     header: string,
     reference: React.RefObject<HTMLDivElement>,
     openCookieDialog: () => void,
+    handleCookieInfo: (name: string, desc:string, price:string, img:string) => void,
     list: List[]
 }
 
@@ -25,8 +26,17 @@ const Section:React.FC<SectionProps> = (props:SectionProps) => {
         const cookieCards: React.ReactElement[] = [];
 
         props.list.map((cookie, index) => {
-            cookieCards.push(<CookieCard name={cookie.name} description={cookie.description} price={cookie.price} imgURL={cookie.imgURL} key={index} 
-            openCookieDialog={props.openCookieDialog}/>)
+            cookieCards.push(
+                <CookieCard 
+                    name={cookie.name} 
+                    description={cookie.description} 
+                    price={cookie.price} 
+                    imgURL={cookie.imgURL} 
+                    key={index} 
+                    openCookieDialog={props.openCookieDialog}
+                    handleCookieInfo={props.handleCookieInfo}
+                />
+            )
         })
 
         setCards(cookieCards);

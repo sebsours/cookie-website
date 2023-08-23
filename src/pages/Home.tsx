@@ -11,12 +11,38 @@ const Home = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
     const [openCheckout, setOpenCheckout] = useState(false);
     const [openCookieDialog, setOpenCookieDialog] = useState(false);
+    const [cookieInfo, setCookieInfo] = useState({});
+    const [numItems, setNumItems] = useState(0);
+    const [totalItemsMap, setTotalItemsMap] = useState(new Map());
+
+    const updateMap = (key:string, value:number) => {
+        if (totalItemsMap.has(key)) {
+            setTotalItemsMap(new Map(totalItemsMap.set(key, value + totalItemsMap.get(key))))
+        } else {
+            setTotalItemsMap(new Map(totalItemsMap.set(key, value)));
+        }
+        
+    }
 
     const handleOpenDrawer = () => setOpenDrawer(true);
     const handleCloseDrawer = () => setOpenDrawer(false);
 
     const handleOpenCheckout = () => setOpenCheckout(!openCheckout);
-    const handleOpenCookieDialog = () => setOpenCookieDialog(!openCookieDialog)
+    const handleOpenCookieDialog = () => setOpenCookieDialog(!openCookieDialog);
+
+    const handleNumItems = (count:number) => setNumItems(numItems + count);
+
+    const handleCookieInfo = (name: string, desc: string, price: string, img: string) => {
+        const cookieObj = {
+            name: name,
+            description: desc,
+            price: price,
+            img: img
+        }
+        
+
+        setCookieInfo(cookieObj);
+    }
 
     const classics = useRef<HTMLDivElement>(null);
     const favorites = useRef<HTMLDivElement>(null);
@@ -40,14 +66,14 @@ const Home = () => {
 
     return ( 
         <>
-            <Navbar openDrawer={handleOpenDrawer} openCheckout={handleOpenCheckout}/>
+            <Navbar openDrawer={handleOpenDrawer} openCheckout={handleOpenCheckout} numItems={numItems}/>
             <div className='flex flex-col py-20' id='Main-Sections'>
-                <Section header={cookieData.classics.type} list={cookieData.classics.list} reference={classics} openCookieDialog={handleOpenCookieDialog}/>
-                <Section header={cookieData.favorites.type} list={cookieData.favorites.list} reference={favorites} openCookieDialog={handleOpenCookieDialog}/>
-                <Section header={cookieData.vegan.type} list={cookieData.vegan.list} reference={vegan} openCookieDialog={handleOpenCookieDialog}/>
-                <Section header={cookieData.seasonal.type} list={cookieData.seasonal.list} reference={seasonal} openCookieDialog={handleOpenCookieDialog}/>
-                <Section header={cookieData.deals.type} list={cookieData.deals.list} reference={deals} openCookieDialog={handleOpenCookieDialog}/>
-                <Section header={cookieData.other.type} list={cookieData.other.list} reference={other} openCookieDialog={handleOpenCookieDialog}/>
+                <Section header={cookieData.classics.type} list={cookieData.classics.list} reference={classics} openCookieDialog={handleOpenCookieDialog} handleCookieInfo={handleCookieInfo}/>
+                <Section header={cookieData.favorites.type} list={cookieData.favorites.list} reference={favorites} openCookieDialog={handleOpenCookieDialog} handleCookieInfo={handleCookieInfo}/>
+                <Section header={cookieData.vegan.type} list={cookieData.vegan.list} reference={vegan} openCookieDialog={handleOpenCookieDialog} handleCookieInfo={handleCookieInfo}/>
+                <Section header={cookieData.seasonal.type} list={cookieData.seasonal.list} reference={seasonal} openCookieDialog={handleOpenCookieDialog} handleCookieInfo={handleCookieInfo}/>
+                <Section header={cookieData.deals.type} list={cookieData.deals.list} reference={deals} openCookieDialog={handleOpenCookieDialog} handleCookieInfo={handleCookieInfo}/>
+                <Section header={cookieData.other.type} list={cookieData.other.list} reference={other} openCookieDialog={handleOpenCookieDialog} handleCookieInfo={handleCookieInfo}/>
             </div>
 
             <Drawer open={openDrawer} onClose={handleCloseDrawer} className="bg-primary">
@@ -78,9 +104,10 @@ const Home = () => {
                 </ul>
             </Drawer>
 
-            <CookieDialog open={openCookieDialog} handleOpen={handleOpenCookieDialog}></CookieDialog>
-            
-            <CheckoutDialog open={openCheckout} handleOpen={handleOpenCheckout}></CheckoutDialog>
+            <CookieDialog open={openCookieDialog} handleOpen={handleOpenCookieDialog} cookieInfo={cookieInfo} handleNumItems={handleNumItems}
+            updateMap={updateMap}></CookieDialog>
+
+            <CheckoutDialog open={openCheckout} handleOpen={handleOpenCheckout} items={totalItemsMap}></CheckoutDialog>
         </>
      );
 }
