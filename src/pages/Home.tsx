@@ -5,10 +5,14 @@ import CookieDialog from "../components/CookieDialog";
 import cookieData from "../assets/cookieselection.json"
 import { Drawer } from "@material-tailwind/react"
 import { useState, useRef } from "react";
+import { Cookie, Star, Vegan, CandyCane, Gem, Cake } from "lucide-react";
 
 interface checkoutInfo {
+    name:string,
     price: string, 
-    quantity: number
+    quantity: number,
+    description: string,
+    img: string,
 }
 
 const Home = () => {
@@ -53,7 +57,9 @@ const Home = () => {
     const handleOpenDrawer = () => setOpenDrawer(true);
     const handleCloseDrawer = () => setOpenDrawer(false);
 
-    const handleOpenCheckout = () => setOpenCheckout(!openCheckout);
+    const handleOpenCheckout = () => {
+        if (!openCookieDialog) setOpenCheckout(!openCheckout);
+    }
     const handleOpenCookieDialog = () => setOpenCookieDialog(!openCookieDialog);
 
 
@@ -93,46 +99,94 @@ const Home = () => {
         <>
             <Navbar openDrawer={handleOpenDrawer} openCheckout={handleOpenCheckout} numItems={numItems}/>
             <div className='flex flex-col py-20' id='Main-Sections'>
-                <Section header={cookieData.classics.type} list={cookieData.classics.list} reference={classics} openCookieDialog={handleOpenCookieDialog} handleCookieInfo={handleCookieInfo}/>
-                <Section header={cookieData.favorites.type} list={cookieData.favorites.list} reference={favorites} openCookieDialog={handleOpenCookieDialog} handleCookieInfo={handleCookieInfo}/>
-                <Section header={cookieData.vegan.type} list={cookieData.vegan.list} reference={vegan} openCookieDialog={handleOpenCookieDialog} handleCookieInfo={handleCookieInfo}/>
-                <Section header={cookieData.seasonal.type} list={cookieData.seasonal.list} reference={seasonal} openCookieDialog={handleOpenCookieDialog} handleCookieInfo={handleCookieInfo}/>
-                <Section header={cookieData.deals.type} list={cookieData.deals.list} reference={deals} openCookieDialog={handleOpenCookieDialog} handleCookieInfo={handleCookieInfo}/>
-                <Section header={cookieData.other.type} list={cookieData.other.list} reference={other} openCookieDialog={handleOpenCookieDialog} handleCookieInfo={handleCookieInfo}/>
+                <Section 
+                        header={cookieData.classics.type} 
+                        list={cookieData.classics.list} 
+                        reference={classics} 
+                        openCookieDialog={handleOpenCookieDialog} 
+                        handleCookieInfo={handleCookieInfo}/>
+                <Section 
+                        header={cookieData.favorites.type} 
+                        list={cookieData.favorites.list} 
+                        reference={favorites} 
+                        openCookieDialog={handleOpenCookieDialog} 
+                        handleCookieInfo={handleCookieInfo}/>
+                <Section 
+                        header={cookieData.vegan.type} 
+                        list={cookieData.vegan.list} 
+                        reference={vegan} 
+                        openCookieDialog={handleOpenCookieDialog} 
+                        handleCookieInfo={handleCookieInfo}/>
+                <Section 
+                        header={cookieData.seasonal.type} 
+                        list={cookieData.seasonal.list} 
+                        reference={seasonal} 
+                        openCookieDialog={handleOpenCookieDialog} 
+                        handleCookieInfo={handleCookieInfo}/>
+                <Section 
+                        header={cookieData.deals.type} 
+                        list={cookieData.deals.list} 
+                        reference={deals} 
+                        openCookieDialog={handleOpenCookieDialog}
+                        handleCookieInfo={handleCookieInfo}/>
+                <Section 
+                        header={cookieData.other.type} 
+                        list={cookieData.other.list}
+                        reference={other} 
+                        openCookieDialog={handleOpenCookieDialog} 
+                        handleCookieInfo={handleCookieInfo}/>
             </div>
 
             <Drawer open={openDrawer} onClose={handleCloseDrawer} className="bg-primary">
                 <ul className="text-lg flex flex-col gap-5 pt-5 pl-5">
                     <li className="hover:cursor-pointer hover:text-white transition duration-200" onClick={() => scrollToSection(classics)}>
+                        <Cookie></Cookie>
                         {cookieData.classics.type.toUpperCase()}
                     </li>
 
                     <li className="hover:cursor-pointer hover:text-white transition duration-200" onClick={() => scrollToSection(favorites)}>
+                        <Star></Star>
                         {cookieData.favorites.type.toUpperCase()}
                     </li>
 
                     <li className="hover:cursor-pointer hover:text-white transition duration-200" onClick={() => scrollToSection(vegan)}>
+                        <Vegan></Vegan>
                         {cookieData.vegan.type.toUpperCase()}
                     </li>
 
                     <li className="hover:cursor-pointer hover:text-white transition duration-200" onClick={() => scrollToSection(seasonal)}>
+                        <CandyCane></CandyCane>
                         {cookieData.seasonal.type.toUpperCase()}
                     </li>
 
                     <li className="hover:cursor-pointer hover:text-white transition duration-200" onClick={() => scrollToSection(deals)}>
+                        <Gem></Gem>
                         {cookieData.deals.type.toUpperCase()}
                     </li>
 
                     <li className="hover:cursor-pointer hover:text-white transition duration-200" onClick={() => scrollToSection(other)}> 
+                        <Cake></Cake>
                         {cookieData.other.type.toUpperCase()}
                     </li>
                 </ul>
             </Drawer>
 
-            <CookieDialog open={openCookieDialog} handleOpen={handleOpenCookieDialog} cookieInfo={cookieInfo}
-            updateMap={updateMap}></CookieDialog>
+            <CheckoutDialog 
+                open={openCheckout} 
+                handleOpen={handleOpenCheckout} 
+                items={totalItemsMap} 
+                deleteItemFromMap={deleteItemFromMap}
+                handleOpenCookieDialog={handleOpenCookieDialog}
+                handleCookieInfo={handleCookieInfo}></CheckoutDialog>
 
-            <CheckoutDialog open={openCheckout} handleOpen={handleOpenCheckout} items={totalItemsMap} deleteItemFromMap={deleteItemFromMap}></CheckoutDialog>
+            <CookieDialog 
+                    open={openCookieDialog} 
+                    handleOpen={handleOpenCookieDialog} 
+                    cookieInfo={cookieInfo}
+                    updateMap={updateMap}>
+            </CookieDialog>
+
+            
         </>
      );
 }

@@ -3,13 +3,18 @@ import {  X  } from "lucide-react";
 import { useEffect, useState } from "react";
 
 interface checkoutInfo {
+    name: string,
     price: string, 
-    quantity: number
+    quantity: number,
+    description: string,
+    img: string,
 }
 
 interface CheckoutDialog {
     open: boolean;
     handleOpen: () => void;
+    handleOpenCookieDialog: () => void;
+    handleCookieInfo: (name: string, desc:string, price:string, img:string) => void;
     items: Map<string, checkoutInfo>
     deleteItemFromMap: (item:string) => void;
 }
@@ -18,6 +23,7 @@ const CheckoutDialog:React.FC<CheckoutDialog> = (props:CheckoutDialog) => {
     const [numItems, setNumItems] = useState(0);
     const [listItems, setListItems] = useState<React.ReactElement[] | null>(null);
     const [totalCost, setTotalCost] = useState(0);
+
 
     useEffect(() => {
         const list:React.ReactElement[] = [];
@@ -45,7 +51,11 @@ const CheckoutDialog:React.FC<CheckoutDialog> = (props:CheckoutDialog) => {
                     </div>
                     
                     <div className="flex gap-4 pt-2">
-                        <button>Edit</button>
+                        <button 
+                            onClick={() => {
+                                props.handleCookieInfo(name, item!.description, item!.price, item!.img);
+                                props.handleOpenCookieDialog();
+                            }}>Edit</button>
                         <button onClick={() => props.deleteItemFromMap(name)}>Delete</button>
                     </div>
                     

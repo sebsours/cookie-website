@@ -5,13 +5,15 @@ import { Minus, Plus } from "lucide-react";
 import { useState } from "react";
 
 interface checkoutInfo {
+    name: string,
     price: string, 
-    quantity: number
+    quantity: number,
+    description: string,
+    img: string,
 }
 interface CookieDialog {
     open: boolean;
     handleOpen: () => void;
-    
     cookieInfo: CookieData;
     updateMap: (key:string, value:checkoutInfo) => void;
 }
@@ -28,8 +30,11 @@ const CookieDialog:React.FC<CookieDialog> = (props:CookieDialog) => {
 
     const addToOrder = () => {
         props.updateMap(props.cookieInfo.name, {
+            name: props.cookieInfo.name,
             price: props.cookieInfo.price,
-            quantity: count
+            quantity: count,
+            description: props.cookieInfo.description,
+            img: props.cookieInfo.img
         });
         setCount(1);
         props.handleOpen();
