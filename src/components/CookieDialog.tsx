@@ -4,12 +4,16 @@ import { Dialog, DialogHeader, DialogBody, DialogFooter,
 import { Minus, Plus } from "lucide-react";
 import { useState } from "react";
 
+interface checkoutInfo {
+    price: string, 
+    quantity: number
+}
 interface CookieDialog {
     open: boolean;
     handleOpen: () => void;
-    handleNumItems: (count:number) => void;
+    
     cookieInfo: CookieData;
-    updateMap: (key:string, value:number) => void;
+    updateMap: (key:string, value:checkoutInfo) => void;
 }
 
 interface CookieData {
@@ -23,8 +27,10 @@ const CookieDialog:React.FC<CookieDialog> = (props:CookieDialog) => {
     const [count, setCount] = useState(1);
 
     const addToOrder = () => {
-        props.handleNumItems(count);
-        props.updateMap(props.cookieInfo.name, count);
+        props.updateMap(props.cookieInfo.name, {
+            price: props.cookieInfo.price,
+            quantity: count
+        });
         setCount(1);
         props.handleOpen();
     }
@@ -38,7 +44,7 @@ const CookieDialog:React.FC<CookieDialog> = (props:CookieDialog) => {
         <Dialog open={props.open} handler={handleClose} className="select-none ">
             <DialogHeader className="font-poppins flex flex-col items-start gap-1.5 pb-0">
                 <span>{props.cookieInfo.name}</span>
-                <span className="text-sm">${props.cookieInfo.price}</span>
+                <span className="text-sm">${(Number(props.cookieInfo.price) * count).toFixed(2)}</span>
             </DialogHeader>
 
             <DialogBody className="font-poppins flex flex-col gap-2">

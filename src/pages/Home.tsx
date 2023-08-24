@@ -6,6 +6,11 @@ import cookieData from "../assets/cookieselection.json"
 import { Drawer } from "@material-tailwind/react"
 import { useState, useRef } from "react";
 
+interface checkoutInfo {
+    price: string, 
+    quantity: number
+}
+
 const Home = () => {
 
     const [openDrawer, setOpenDrawer] = useState(false);
@@ -15,13 +20,34 @@ const Home = () => {
     const [numItems, setNumItems] = useState(0);
     const [totalItemsMap, setTotalItemsMap] = useState(new Map());
 
-    const updateMap = (key:string, value:number) => {
+    const updateMap = (key:string, value:checkoutInfo) => {
+        
         if (totalItemsMap.has(key)) {
-            setTotalItemsMap(new Map(totalItemsMap.set(key, value + totalItemsMap.get(key))))
+            // value.quantity += totalItemsMap.get(key).quantity;
+            setTotalItemsMap(new Map(totalItemsMap.set(key, value)))
         } else {
             setTotalItemsMap(new Map(totalItemsMap.set(key, value)));
         }
-        
+
+        let countItems = 0;
+        for (const key of totalItemsMap.keys()) {
+            countItems += totalItemsMap.get(key).quantity;
+        }
+
+        setNumItems(countItems);
+
+    }
+
+    const deleteItemFromMap = (item:string) => {
+        totalItemsMap.delete(item);
+        setTotalItemsMap(new Map(totalItemsMap));
+
+        let countItems = 0;
+        for (const key of totalItemsMap.keys()) {
+            countItems += totalItemsMap.get(key).quantity;
+        }
+
+        setNumItems(countItems);
     }
 
     const handleOpenDrawer = () => setOpenDrawer(true);
@@ -30,7 +56,6 @@ const Home = () => {
     const handleOpenCheckout = () => setOpenCheckout(!openCheckout);
     const handleOpenCookieDialog = () => setOpenCookieDialog(!openCookieDialog);
 
-    const handleNumItems = (count:number) => setNumItems(numItems + count);
 
     const handleCookieInfo = (name: string, desc: string, price: string, img: string) => {
         const cookieObj = {
@@ -104,10 +129,10 @@ const Home = () => {
                 </ul>
             </Drawer>
 
-            <CookieDialog open={openCookieDialog} handleOpen={handleOpenCookieDialog} cookieInfo={cookieInfo} handleNumItems={handleNumItems}
+            <CookieDialog open={openCookieDialog} handleOpen={handleOpenCookieDialog} cookieInfo={cookieInfo}
             updateMap={updateMap}></CookieDialog>
 
-            <CheckoutDialog open={openCheckout} handleOpen={handleOpenCheckout} items={totalItemsMap}></CheckoutDialog>
+            <CheckoutDialog open={openCheckout} handleOpen={handleOpenCheckout} items={totalItemsMap} deleteItemFromMap={deleteItemFromMap}></CheckoutDialog>
         </>
      );
 }
