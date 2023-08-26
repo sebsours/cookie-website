@@ -9,7 +9,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ openDrawer, openCheckout, numItems }) => {
     return (  
-        <div className="w-full h-16 bg-primary flex justify-between px-4 fixed z-10">
+        <div className="w-full h-16 bg-primary flex justify-between px-4 fixed z-20">
             <ul className="h-full flex flex-row items-center gap-3">
                 <li>
                     <Menu className="hover:cursor-pointer" onClick={openDrawer}/>

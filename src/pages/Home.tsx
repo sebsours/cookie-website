@@ -1,7 +1,9 @@
 import Navbar from "../components/Navbar";
 import Section from "../components/Section";
+import Footer from "../components/Footer";
 import CheckoutDialog from "../components/CheckoutDialog";
 import CookieDialog from "../components/CookieDialog";
+import CookieCarousel from "../components/CookieCarousel";
 import cookieData from "../assets/cookieselection.json"
 import { Drawer } from "@material-tailwind/react"
 import { useState, useRef } from "react";
@@ -98,7 +100,8 @@ const Home = () => {
     return ( 
         <>
             <Navbar openDrawer={handleOpenDrawer} openCheckout={handleOpenCheckout} numItems={numItems}/>
-            <div className='flex flex-col py-20' id='Main-Sections'>
+            <CookieCarousel></CookieCarousel>
+            <div className='flex flex-col' id='Main-Sections'>
                 <Section 
                         header={cookieData.classics.type} 
                         list={cookieData.classics.list} 
@@ -170,6 +173,8 @@ const Home = () => {
                     </li>
                 </ul>
             </Drawer>
+
+            <Footer />
 
             <CheckoutDialog 
                 open={openCheckout} 

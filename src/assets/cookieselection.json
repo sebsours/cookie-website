@@ -6,13 +6,13 @@
                 "name": "Chocolate Chip",
                 "description": "This is a chocolate chip",
                 "price": "1.01",
-                "imgURL": "cookie.jpg"
+                "imgURL": "https://images.pexels.com/photos/18054267/pexels-photo-18054267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             },
             {
                 "name": "Sugar Cookie",
                 "description": "This is a sugar cookie",
                 "price": "1.00",
-                "imgURL": "cookie.jpg"
+                "imgURL": "https://images.pexels.com/photos/14000526/pexels-photo-14000526.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             }
         ]    
     },
@@ -24,7 +24,7 @@
                 "name": "Double Trouble",
                 "description": "This is a chocolate chunk with a brownie baked in",
                 "price": "1.00",
-                "imgURL": "cookie.jpg"
+                "imgURL": "https://images.pexels.com/photos/14000526/pexels-photo-14000526.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             }
         ]
     },

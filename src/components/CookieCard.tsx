@@ -13,7 +13,7 @@ interface CookieCardProps {
 
 
 const CookieCard: React.FC<CookieCardProps> = (props:CookieCardProps) => {
-
+    console.log(props.imgURL)
     const handleCookieClick = () => {
         props.handleCookieInfo(props.name, props.description, props.price, props.imgURL);
         props.openCookieDialog();
@@ -26,7 +26,7 @@ const CookieCard: React.FC<CookieCardProps> = (props:CookieCardProps) => {
                 <Plus className="text-white" />
             </button>
             <div className="h-96 w-64 border-2 border-secondary rounded-lg py-4 px-8 group-hover:cursor-pointer group-hover:border-accent transition ease-in duration-300">
-                <img src={cookieImg} alt="" />
+                <img src={props.imgURL} alt="" height={1920} width={1080} className="w-[184px] h-[188px]"/>
                 <div className="pt-3 flex flex-col gap-1">
                     <span className="text-lg font-extrabold tracking-wide">{props.name}</span>
                     <p className="text-xs font-semibold tracking-wide">{props.description}</p>

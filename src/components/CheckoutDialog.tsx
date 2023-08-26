@@ -101,6 +101,7 @@ const CheckoutDialog:React.FC<CheckoutDialog> = (props:CheckoutDialog) => {
                 </div>
             
             </DialogBody>
+          
 
             <DialogFooter className="flex justify-center">
                 
