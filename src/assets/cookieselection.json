@@ -62,8 +62,8 @@
             }
         ]
     },
-    "deals": {
-        "type": "deals",
+    "drinks": {
+        "type": "drinks",
         "list": [
             {
                 "name": "cookie1",

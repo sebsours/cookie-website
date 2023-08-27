@@ -81,7 +81,7 @@ const Home = () => {
     const favorites = useRef<HTMLDivElement>(null);
     const vegan = useRef<HTMLDivElement>(null);
     const seasonal = useRef<HTMLDivElement>(null);
-    const deals = useRef<HTMLDivElement>(null);
+    const drinks = useRef<HTMLDivElement>(null);
     const other = useRef<HTMLDivElement>(null);
 
     const scrollToSection = (elementRef:React.RefObject<HTMLDivElement>) => {
@@ -127,9 +127,9 @@ const Home = () => {
                         openCookieDialog={handleOpenCookieDialog} 
                         handleCookieInfo={handleCookieInfo}/>
                 <Section 
-                        header={cookieData.deals.type} 
-                        list={cookieData.deals.list} 
-                        reference={deals} 
+                        header={cookieData.drinks.type} 
+                        list={cookieData.drinks.list} 
+                        reference={drinks} 
                         openCookieDialog={handleOpenCookieDialog}
                         handleCookieInfo={handleCookieInfo}/>
                 <Section 
@@ -162,9 +162,9 @@ const Home = () => {
                         {cookieData.seasonal.type.toUpperCase()}
                     </li>
 
-                    <li className="hover:cursor-pointer hover:text-white transition duration-200" onClick={() => scrollToSection(deals)}>
+                    <li className="hover:cursor-pointer hover:text-white transition duration-200" onClick={() => scrollToSection(drinks)}>
                         <Gem></Gem>
-                        {cookieData.deals.type.toUpperCase()}
+                        {cookieData.drinks.type.toUpperCase()}
                     </li>
 
                     <li className="hover:cursor-pointer hover:text-white transition duration-200" onClick={() => scrollToSection(other)}> 
