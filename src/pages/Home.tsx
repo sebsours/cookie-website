@@ -100,7 +100,7 @@ const Home = () => {
     return ( 
         <>
             <Navbar openDrawer={handleOpenDrawer} openCheckout={handleOpenCheckout} numItems={numItems}/>
-            <CookieCarousel></CookieCarousel>
+            <CookieCarousel handleCookieInfo={handleCookieInfo} handleOpenCookieDialog={handleOpenCookieDialog}></CookieCarousel>
             <div className='flex flex-col' id='Main-Sections'>
                 <Section 
                         header={cookieData.classics.type} 
