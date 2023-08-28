@@ -176,7 +176,7 @@ const Home = () => {
 
             <Footer />
 
-            <CheckoutDialog 
+            <CheckoutDialog
                 open={openCheckout} 
                 handleOpen={handleOpenCheckout} 
                 items={totalItemsMap} 
