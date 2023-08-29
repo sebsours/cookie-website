@@ -25,6 +25,7 @@ const Home = () => {
     const [cookieInfo, setCookieInfo] = useState({});
     const [numItems, setNumItems] = useState(0);
     const [totalItemsMap, setTotalItemsMap] = useState(new Map());
+    const [isSubmitOpen, setIsSubmitOpen] = useState(false);
 
     const updateMap = (key:string, value:checkoutInfo) => {
         
@@ -56,11 +57,31 @@ const Home = () => {
         setNumItems(countItems);
     }
 
+    const clearMap = () => {
+        totalItemsMap.clear();
+        setTotalItemsMap(new Map(totalItemsMap));
+
+        setNumItems(0);
+    }
+
     const handleOpenDrawer = () => setOpenDrawer(true);
     const handleCloseDrawer = () => setOpenDrawer(false);
 
+    const handleIsSubmitOpen = () => {
+        setIsSubmitOpen(!isSubmitOpen)
+        if (!isSubmitOpen) setIsSubmitOpen(true);
+        else {
+            setIsSubmitOpen(false);
+            clearMap();
+        }
+    }
+
     const handleOpenCheckout = () => {
-        if (!openCookieDialog) setOpenCheckout(!openCheckout);
+        if (!openCookieDialog){ 
+            console.log(`openCookieDialog`)
+            setOpenCheckout(!openCheckout);
+        }
+        
     }
     const handleOpenCookieDialog = () => setOpenCookieDialog(!openCookieDialog);
 
@@ -182,7 +203,9 @@ const Home = () => {
                 items={totalItemsMap} 
                 deleteItemFromMap={deleteItemFromMap}
                 handleOpenCookieDialog={handleOpenCookieDialog}
-                handleCookieInfo={handleCookieInfo}></CheckoutDialog>
+                handleCookieInfo={handleCookieInfo}
+                isSubmitOpen={isSubmitOpen}
+                handleIsSubmitOpen={handleIsSubmitOpen}></CheckoutDialog>
 
             <CookieDialog 
                     open={openCookieDialog} 

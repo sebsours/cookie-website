@@ -1,4 +1,4 @@
-import { Dialog, DialogHeader, DialogBody, DialogFooter, Input,  Accordion, AccordionHeader, AccordionBody } from "@material-tailwind/react";
+import { Dialog, DialogHeader, DialogBody, DialogFooter, Input,  Accordion, AccordionHeader, AccordionBody, Alert } from "@material-tailwind/react";
 import {  X, ChevronDown, Loader2  } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -15,6 +15,8 @@ interface CheckoutDialog {
     handleOpen: () => void;
     handleOpenCookieDialog: () => void;
     handleCookieInfo: (name: string, desc:string, price:string, img:string) => void;
+    isSubmitOpen: boolean;
+    handleIsSubmitOpen: () => void;
     items: Map<string, checkoutInfo>
     deleteItemFromMap: (item:string) => void;
 }
@@ -22,16 +24,19 @@ interface CheckoutDialog {
 const CheckoutDialog:React.FC<CheckoutDialog> = (props:CheckoutDialog) => {
     const [numItems, setNumItems] = useState(0);
     const [listItems, setListItems] = useState<React.ReactElement[] | null>(null);
+    const [listItemsForSubmit, setListItemsForSubmit] = useState<React.ReactElement[] | null>(null);
     const [totalCost, setTotalCost] = useState(0);
     const [openFirstAccordion, setOpenFirstAccordion] = useState(false);
     const [openSecAccordion, setOpenSecAccordion] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [cardNumber, setCardNumber] = useState('');
     const [expireDate, setExpiredDate] = useState('');
     const [cvc, setCvc] = useState('');
+    const [curDate, setDate] = useState('');
 
     const [nameErr, setNameErr] = useState(false);
     const [emailErr, setEmailErr] = useState(false);
@@ -76,16 +81,32 @@ const CheckoutDialog:React.FC<CheckoutDialog> = (props:CheckoutDialog) => {
         
         if (flag) {
             setIsLoading(false);
+            
             return;
         }
+        
         setTimeout(() => {
-            setIsLoading(false)
+            setIsLoading(false);
+            props.handleIsSubmitOpen();
+            props.handleOpen();
+            const dateObj = new Date().toLocaleString();
+            setDate(() => dateObj);
+            
+            setName('');
+            setEmail('');
+            setCardNumber('');
+            setExpiredDate('');
+            setCvc('');
+
+            
+            
         }, 1500);
         console.log(name, email, cardNumber, expireDate, cvc);
     }
 
     useEffect(() => {
         const list:React.ReactElement[] = [];
+        const listForSubmitModal:React.ReactElement[] = [];
         let cost = 0;
         let numberOfItems = 0;
         let index = 0;
@@ -121,6 +142,15 @@ const CheckoutDialog:React.FC<CheckoutDialog> = (props:CheckoutDialog) => {
                 </li>
             )
 
+            listForSubmitModal.push(
+                <li key={index} className="flex flex-col">
+                    <div className="flex justify-between">
+                        <span className="ml-10">{name} - {item?.quantity}</span>
+                        <span>${cookiePrice}</span>
+                    </div>
+                </li>
+            )
+
             index++;
 
         }
@@ -128,7 +158,7 @@ const CheckoutDialog:React.FC<CheckoutDialog> = (props:CheckoutDialog) => {
         setTotalCost(cost);
         setNumItems(numberOfItems);
         setListItems(list);
-
+        setListItemsForSubmit(listForSubmitModal)
 
 
 
@@ -137,108 +167,130 @@ const CheckoutDialog:React.FC<CheckoutDialog> = (props:CheckoutDialog) => {
 
 
     return ( 
-        <Dialog open={props.open} size="xxl" handler={props.handleOpen} className="font-poppins px-4 py-3 max-h-none h-auto">
-            <DialogHeader className="font-poppins flex justify-between ">
-                Checkout
-                <X className="hover:cursor-pointer" onClick={props.handleOpen}/>
-            </DialogHeader>
-
-            <DialogBody divider className="font-poppins">
-                <div className="pb-5">
-                    <span className="">Your Order</span>
-                    <ul className="pt-8 flex flex-col gap-5">
-                        
+        <>
         
-                        { numItems > 0 ? 
-                            listItems
-                        : 
-                        <li>You have no items</li>
-                        }
+            <Dialog open={props.open} size="xxl" handler={props.handleOpen} className="font-poppins px-4 py-3 max-h-none h-auto">
+                <DialogHeader className="font-poppins flex justify-between ">
+                    Checkout
+                    <X className="hover:cursor-pointer" onClick={props.handleOpen}/>
+                </DialogHeader>
 
-                        <li className="mt-10 flex justify-end">Total: ${totalCost.toFixed(2)}</li>
-                    </ul>
-                </div>
-
-                
-
-                
-
+                <DialogBody divider className="font-poppins">
+                    <div className="pb-5">
+                        <span className="">Your Order</span>
+                        <ul className="pt-8 flex flex-col gap-5">
+                            
             
-            </DialogBody>
-          
+                            { numItems > 0 ? 
+                                listItems
+                            : 
+                            <li>You have no items</li>
+                            }
 
-            <DialogFooter className="flex justify-center">
-                <p className=" text-xs">Note: This is only for demo purposes only. Data inputted is minimally validated and will not be stored or used anywhere else. Any dummy data will
-                    still be accepted by the app. Ex: 1111 1111 1111 1111 for card number input
-                </p>
-                <Accordion open={openFirstAccordion} className="font-poppins" icon={<ChevronDown className={`${openFirstAccordion ? "rotate-180" : ""} transition-transform`} />}>
-                    <AccordionHeader onClick={handleOpenFirstAcc} className="font-poppins font-medium">
-                        Contact Info
-                    </AccordionHeader>
+                            <li className="mt-10 flex justify-end">Total: ${totalCost.toFixed(2)}</li>
+                        </ul>
+                    </div>
 
-                    <AccordionBody className="flex flex-col gap-4 py-3 font-poppins"> 
-                        <Input label="Name" crossOrigin={undefined}
-                            value={name}
-                            onChange={(e) => {
-                                setName(e.target.value);
-                                setNameErr(false); 
-                            }} 
-                            error={nameErr}/>
-                        <Input label="Email" crossOrigin={undefined}
-                            value={email} 
-                            onChange={(e) => {
-                                setEmail(e.target.value);
-                                setEmailErr(false);
-                            }}
-                            error={emailErr}/>
-                    </AccordionBody>
-                </Accordion>
-
-                <Accordion open={openSecAccordion} className="font-poppins pb-10" icon={<ChevronDown className={`${openSecAccordion? "rotate-180" : ""} transition-transform`} />}>
-                    <AccordionHeader onClick={handleOpenSecAcc} className="font-poppins font-medium">
-                        Payment
-                    </AccordionHeader>
                     
-                    <AccordionBody className="flex flex-col gap-4 py-3 font-poppins">
-                        <Input label="Card number" crossOrigin={undefined}
-                            value={cardNumber}
-                            onChange={(e) => {
-                                setCardNumber(e.target.value);
-                                setCardNumErr(false);
-                            }} 
-                            error={cardNumErr}></Input>
-                        <Input label="Expires" crossOrigin={undefined} 
-                            maxLength={5}
-                            value={expireDate}
-                            onKeyDown={(e) => {
-                                if (e.key === 'Backspace' && expireDate.length === 3) {
-                                    setExpiredDate((expireDate) => expireDate.substring(0,2));
-                                }
-                            } }
-                            onChange={(e) => {
-                                if (e.target.value.length === 2){
-                                    setExpiredDate(e.target.value.substring(0,2) + '/' + e.target.value.substring(2));
-                                } else {
-                                    setExpiredDate(e.target.value);
-                                }
-                                setExpireErr(false);
-                            }} 
-                            error={expireErr}></Input>
-                        <Input label="CVC" crossOrigin={undefined}
-                            value={cvc}
-                            maxLength={3}
-                            onChange={(e) => {
-                                setCvc(e.target.value);
-                                setCvcErr(false);
-                            }} 
-                            error={cvcErr}></Input>
-                    </AccordionBody>
-                </Accordion>
-                <button onClick={buttonClick} disabled={numItems === 0} className="bg-primary disabled:bg-secondary w-full max-w-[600px] text-white py-2 rounded-3xl hover:bg-accent transition ease-in outline-none">
-                    {isLoading ? <Loader2 className="animate-spin"/> : 'Place Order'}
-                </button>
-            </DialogFooter>
-        </Dialog>
+
+                    
+
+                
+                </DialogBody>
+            
+
+                <DialogFooter className="flex justify-center">
+                    <p className=" text-xs">Note: This is only for demo purposes only. Data inputted is minimally validated and will not be stored or used anywhere else. Any dummy data will
+                        still be accepted by the app. Ex: 1111 1111 1111 1111 for card number input
+                    </p>
+                    <Accordion open={openFirstAccordion} className="font-poppins" icon={<ChevronDown className={`${openFirstAccordion ? "rotate-180" : ""} transition-transform`} />}>
+                        <AccordionHeader onClick={handleOpenFirstAcc} className="font-poppins font-medium">
+                            Contact Info
+                        </AccordionHeader>
+
+                        <AccordionBody className="flex flex-col gap-4 py-3 font-poppins"> 
+                            <Input label="Name" crossOrigin={undefined}
+                                value={name}
+                                onChange={(e) => {
+                                    setName(e.target.value);
+                                    setNameErr(false); 
+                                }} 
+                                error={nameErr}/>
+                            <Input label="Email" crossOrigin={undefined}
+                                value={email} 
+                                onChange={(e) => {
+                                    setEmail(e.target.value);
+                                    setEmailErr(false);
+                                }}
+                                error={emailErr}/>
+                        </AccordionBody>
+                    </Accordion>
+
+                    <Accordion open={openSecAccordion} className="font-poppins pb-10" icon={<ChevronDown className={`${openSecAccordion? "rotate-180" : ""} transition-transform`} />}>
+                        <AccordionHeader onClick={handleOpenSecAcc} className="font-poppins font-medium">
+                            Payment
+                        </AccordionHeader>
+                        
+                        <AccordionBody className="flex flex-col gap-4 py-3 font-poppins">
+                            <Input label="Card number" crossOrigin={undefined}
+                                value={cardNumber}
+                                onChange={(e) => {
+                                    setCardNumber(e.target.value);
+                                    setCardNumErr(false);
+                                }} 
+                                error={cardNumErr}></Input>
+                            <Input label="Expires" crossOrigin={undefined} 
+                                maxLength={5}
+                                value={expireDate}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Backspace' && expireDate.length === 3) {
+                                        setExpiredDate((expireDate) => expireDate.substring(0,2));
+                                    }
+                                } }
+                                onChange={(e) => {
+                                    if (e.target.value.length === 2){
+                                        setExpiredDate(e.target.value.substring(0,2) + '/' + e.target.value.substring(2));
+                                    } else {
+                                        setExpiredDate(e.target.value);
+                                    }
+                                    setExpireErr(false);
+                                }} 
+                                error={expireErr}></Input>
+                            <Input label="CVC" crossOrigin={undefined}
+                                value={cvc}
+                                maxLength={3}
+                                onChange={(e) => {
+                                    setCvc(e.target.value);
+                                    setCvcErr(false);
+                                }} 
+                                error={cvcErr}></Input>
+                        </AccordionBody>
+                    </Accordion>
+                    <button onClick={buttonClick} disabled={numItems === 0} className="bg-primary disabled:bg-secondary w-full max-w-[600px] text-white py-2 rounded-3xl hover:bg-accent transition ease-in outline-none">
+                        {isLoading ? <Loader2 className="animate-spin"/> : 'Place Order'}
+                    </button>
+                </DialogFooter>
+            </Dialog>
+
+            <Dialog open={props.isSubmitOpen} size="lg" handler={props.handleIsSubmitOpen}>
+                    <DialogHeader className="font-poppins flex justify-between ">
+                        Order Received!
+                        <X className="hover:cursor-pointer" onClick={props.handleIsSubmitOpen}/>
+                    </DialogHeader>
+                    <DialogBody divider className="font-poppins">
+                                <span>Order placed for {name} at {curDate}</span>
+                                <hr className="my-5"/>
+                                <div>
+                                    <span className="">Order Details:</span>
+                                    {listItemsForSubmit}
+                                </div>
+                                <li className="mt-10 flex justify-end">Total: ${totalCost.toFixed(2)}</li>
+                    </DialogBody>
+                    <DialogFooter className="font-poppins flex justify-start">
+                        <span>Thank You!</span>
+                    </DialogFooter>
+            </Dialog>
+        </>
      );
 }
  
