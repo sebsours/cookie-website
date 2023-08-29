@@ -100,8 +100,8 @@ const CheckoutDialog:React.FC<CheckoutDialog> = (props:CheckoutDialog) => {
 
             
             
-        }, 1500);
-        console.log(name, email, cardNumber, expireDate, cvc);
+        }, 2000);
+        
     }
 
     useEffect(() => {
@@ -199,16 +199,16 @@ const CheckoutDialog:React.FC<CheckoutDialog> = (props:CheckoutDialog) => {
                 </DialogBody>
             
 
-                <DialogFooter className="flex justify-center">
-                    <p className=" text-xs">Note: This is only for demo purposes only. Data inputted is minimally validated and will not be stored or used anywhere else. Any dummy data will
+                <DialogFooter className="flex flex-col">
+                    <p className="self-start text-xs">Note: This is only for demo purposes only. Data inputted is minimally validated and will not be stored or used anywhere else. Any dummy data will
                         still be accepted by the app. Ex: 1111 1111 1111 1111 for card number input
                     </p>
-                    <Accordion open={openFirstAccordion} className="font-poppins" icon={<ChevronDown className={`${openFirstAccordion ? "rotate-180" : ""} transition-transform`} />}>
+                    <Accordion open={openFirstAccordion} className="font-poppins " icon={<ChevronDown className={`${openFirstAccordion ? "rotate-180" : ""} transition-transform`} />}>
                         <AccordionHeader onClick={handleOpenFirstAcc} className="font-poppins font-medium">
                             Contact Info
                         </AccordionHeader>
 
-                        <AccordionBody className="flex flex-col gap-4 py-3 font-poppins"> 
+                        <AccordionBody className="flex flex-col gap-4 py-3 font-poppins max-w-xl"> 
                             <Input label="Name" crossOrigin={undefined}
                                 value={name}
                                 onChange={(e) => {
@@ -226,12 +226,12 @@ const CheckoutDialog:React.FC<CheckoutDialog> = (props:CheckoutDialog) => {
                         </AccordionBody>
                     </Accordion>
 
-                    <Accordion open={openSecAccordion} className="font-poppins pb-10" icon={<ChevronDown className={`${openSecAccordion? "rotate-180" : ""} transition-transform`} />}>
+                    <Accordion open={openSecAccordion} className="font-poppins pb-10 " icon={<ChevronDown className={`${openSecAccordion? "rotate-180" : ""} transition-transform`} />}>
                         <AccordionHeader onClick={handleOpenSecAcc} className="font-poppins font-medium">
                             Payment
                         </AccordionHeader>
                         
-                        <AccordionBody className="flex flex-col gap-4 py-3 font-poppins">
+                        <AccordionBody className="flex flex-col gap-4 py-3 font-poppins max-w-xl">
                             <Input label="Card number" crossOrigin={undefined}
                                 value={cardNumber}
                                 onChange={(e) => {
@@ -239,6 +239,7 @@ const CheckoutDialog:React.FC<CheckoutDialog> = (props:CheckoutDialog) => {
                                     setCardNumErr(false);
                                 }} 
                                 error={cardNumErr}></Input>
+                            
                             <Input label="Expires" crossOrigin={undefined} 
                                 maxLength={5}
                                 value={expireDate}
@@ -266,13 +267,13 @@ const CheckoutDialog:React.FC<CheckoutDialog> = (props:CheckoutDialog) => {
                                 error={cvcErr}></Input>
                         </AccordionBody>
                     </Accordion>
-                    <button onClick={buttonClick} disabled={numItems === 0} className="bg-primary disabled:bg-secondary w-full max-w-[600px] text-white py-2 rounded-3xl hover:bg-accent transition ease-in outline-none">
+                    <button onClick={buttonClick} disabled={numItems === 0} className="bg-primary disabled:bg-secondary flex justify-center w-full max-w-[600px] text-white py-2 rounded-3xl hover:bg-accent transition ease-in outline-none">
                         {isLoading ? <Loader2 className="animate-spin"/> : 'Place Order'}
                     </button>
                 </DialogFooter>
             </Dialog>
 
-            <Dialog open={props.isSubmitOpen} size="lg" handler={props.handleIsSubmitOpen}>
+            <Dialog open={props.isSubmitOpen} size="md" handler={props.handleIsSubmitOpen}>
                     <DialogHeader className="font-poppins flex justify-between ">
                         Order Received!
                         <X className="hover:cursor-pointer" onClick={props.handleIsSubmitOpen}/>

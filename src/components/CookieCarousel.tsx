@@ -29,10 +29,9 @@ const CookieCarousel: React.FC<CookieCarousel> = (props:CookieCarousel) => {
 
 
     return ( 
-        <Carousel className="py-20 bg-secondary h-[750px] z-10" loop={true} autoplay={true}>
-            <div className="h-full flex flex-col items-center">
-
-                <div className="h-1/2 w-4/5 flex flex-col items-start justify-around">
+        <Carousel className="py-20 bg-gradient-to-t from-primary to-secondary h-[750px] z-10 " loop={true} autoplay={true}>
+            <div className="h-full lg:w-lg flex flex-col lg:flex-row lg:justify-evenly items-center ">
+                <div className="h-1/2 px-10 lg:px-0 flex flex-col items-start justify-around">
                     <div className="">
                     <span className="text-5xl font-semibold tracking-wide">Fallin' for You</span>
                     <p className="tracking-wide mt-5">Our limited edition pumpkin spice cookies are now here</p>
@@ -41,14 +40,14 @@ const CookieCarousel: React.FC<CookieCarousel> = (props:CookieCarousel) => {
                     <button onClick={() => handleButtonClick(1)} className="tracking-wide bg-accent max-w-[600px] w-44 text-white py-2 rounded-3xl">Order Now</button>
                 </div>
                 
-                <div className="h-1/2 w-4/5">
+                <div className="flex justify-center ">
                     <img src={cookie} alt="" className="w-[300px]"/>
                 </div>
                 
             </div>
 
-            <div className="h-full flex flex-col items-center">
-                <div className="h-1/2 w-4/5 flex flex-col items-start justify-around">
+            <div className="h-full lg:w-lg flex flex-col lg:flex-row lg:justify-evenly items-center ">
+                <div className="h-1/2 px-10 lg:px-0 flex flex-col items-start justify-around">
                     <div>
                         <span className="text-5xl font-semibold tracking-wide">Trouble is Here</span>
                         <p className="tracking-wide mt-5">Our most sought after cookie. Try our Double Trouble cookie</p>
@@ -57,13 +56,13 @@ const CookieCarousel: React.FC<CookieCarousel> = (props:CookieCarousel) => {
                     <button onClick={() => handleButtonClick(2)} className="tracking-wide bg-accent max-w-[600px] w-44 text-white py-2 rounded-3xl">Order now</button>
                 </div>
 
-                <div className="h-1/2 w-4/5">
+                <div className="flex justify-center ">
                     <img src={cookie} alt="" className="w-[300px]"/>
                 </div>
             </div>
             
-            <div className="h-full flex flex-col items-center">
-                <div className="h-1/2 w-4/5 flex flex-col items-start justify-around">
+            <div className="h-full lg:w-lg flex flex-col lg:flex-row lg:justify-evenly items-center ">
+                <div className="h-1/2 px-10 lg:px-0 flex flex-col items-start justify-around">
                     <div>
                         <span className="text-5xl font-semibold tracking-wide">Sweet Surprise</span>
                         <p className="tracking-wide mt-5">Order our delicious ice cream cookie cake</p>
@@ -72,7 +71,7 @@ const CookieCarousel: React.FC<CookieCarousel> = (props:CookieCarousel) => {
                     <button onClick={() => handleButtonClick(3)} className="tracking-wide bg-accent max-w-[600px] w-44 text-white py-2 rounded-3xl">Order now</button>
                 </div>
 
-                <div className="h-1/2 w-4/5">
+                <div className="flex justify-center ">
                     <img src={cookie} alt="" className="w-[300px]"/>
                 </div>
             </div>

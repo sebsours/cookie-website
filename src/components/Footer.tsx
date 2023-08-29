@@ -2,14 +2,14 @@ import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 
 const Footer = () => {
     return ( 
-        <div className="h-96 bg-primary my-40 pt-8 px-5 flex flex-col gap-5">
-            <div className="order-3 self-center">
-                <span className="text-3xl">Cookies Inc</span>
+        <div className="lg:w-[1400px] px-5 flex flex-col lg:flex-row gap-5 lg:justify-evenly lg:gap-0">
+            <div className="order-3 lg:order-1 self-center lg:self-auto">
+                <span className="text-3xl lg:text-6xl lg:font-semibold">Cookies Inc</span>
             </div>
 
-            <div className="order-1">
-                <span className="text-2xl">Company</span>
-                <div className="grid grid-cols-2 pt-3 gap-4">
+            <div className="order-1 lg:order-2">
+                <span className="text-2xl font-bold">Company</span>
+                <div className="grid grid-cols-2 pt-3 gap-4 lg:grid-cols-1">
                     <a href="">About Us</a>
                     <a href="">Nutrition</a>
                     <a href="">FAQ</a>
@@ -19,8 +19,8 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="order-2">
-                <span className="text-2xl">Follow Us</span>
+            <div className="order-2 lg:order-3">
+                <span className="text-2xl font-bold">Follow Us</span>
                 <div className="flex justify-between pt-3 w-1/3 gap-5">
                     <a href=""><Facebook /></a>
                     <a href=""><Instagram /></a>

@@ -7,7 +7,7 @@ import CookieCarousel from "../components/CookieCarousel";
 import cookieData from "../assets/cookieselection.json"
 import { Drawer } from "@material-tailwind/react"
 import { useState, useRef } from "react";
-import { Cookie, Star, Vegan, CandyCane, Gem, Cake } from "lucide-react";
+import { Cookie, Star, Vegan, CandyCane, Coffee, Cake } from "lucide-react";
 
 interface checkoutInfo {
     name:string,
@@ -120,7 +120,10 @@ const Home = () => {
 
     return ( 
         <>
-            <Navbar openDrawer={handleOpenDrawer} openCheckout={handleOpenCheckout} numItems={numItems}/>
+            <div className="flex justify-center">
+                <Navbar openDrawer={handleOpenDrawer} openCheckout={handleOpenCheckout} numItems={numItems}/>
+            </div>
+            
             <CookieCarousel handleCookieInfo={handleCookieInfo} handleOpenCookieDialog={handleOpenCookieDialog}></CookieCarousel>
             <div className='flex flex-col' id='Main-Sections'>
                 <Section 
@@ -184,7 +187,7 @@ const Home = () => {
                     </li>
 
                     <li className="hover:cursor-pointer hover:text-white transition duration-200" onClick={() => scrollToSection(drinks)}>
-                        <Gem></Gem>
+                        <Coffee></Coffee>
                         {cookieData.drinks.type.toUpperCase()}
                     </li>
 
@@ -195,7 +198,10 @@ const Home = () => {
                 </ul>
             </Drawer>
 
-            <Footer />
+            <div className="w-full bg-primary lg:flex mt-24 py-8 lg:justify-center">
+                <Footer />
+            </div>
+            
 
             <CheckoutDialog
                 open={openCheckout} 
