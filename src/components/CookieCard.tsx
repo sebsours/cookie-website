@@ -1,6 +1,5 @@
 
 // import Image from "next/image";
-import cookieImg from "../assets/cookie.jpg"
 import { Plus } from "lucide-react"
 interface CookieCardProps {
     name: string,
@@ -26,7 +25,7 @@ const CookieCard: React.FC<CookieCardProps> = (props:CookieCardProps) => {
                 <Plus className="text-white" />
             </button>
             <div className="h-96 w-64 border-2 border-secondary rounded-lg py-4 px-8 group-hover:cursor-pointer group-hover:border-accent transition ease-in duration-300">
-                <img src={cookieImg} alt="" height={1920} width={1080} className="w-[184px] h-[188px]"/>
+                <img src={props.imgURL} alt="" height={1920} width={1080} className="w-[184px] h-[188px] rounded-xl object-cover object-center drop-shadow-md"/>
                 <div className="pt-3 flex flex-col gap-1">
                     <span className="text-lg font-extrabold tracking-wide">{props.name}</span>
                     <p className="text-xs font-semibold tracking-wide">{props.description}</p>
