@@ -12,7 +12,6 @@ interface CookieCardProps {
 
 
 const CookieCard: React.FC<CookieCardProps> = (props:CookieCardProps) => {
-    console.log(props.imgURL)
     const handleCookieClick = () => {
         props.handleCookieInfo(props.name, props.description, props.price, props.imgURL);
         props.openCookieDialog();

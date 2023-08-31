@@ -1,5 +1,5 @@
 import { Menu, ShoppingCart } from "lucide-react";
-import { Badge } from "@material-tailwind/react";
+
 
 interface NavbarProps {
     openDrawer: () => void,
@@ -17,11 +17,14 @@ const Navbar: React.FC<NavbarProps> = ({ openDrawer, openCheckout, numItems }) =
                 <li className="text-xl">Cookies Inc</li>
             </ul>
 
-            <ul className="h-full flex flex-row items-center">
-                <li onClick={openCheckout}>
-                    <Badge content={numItems} className="min-w-[20px] min-h-[20px]">
-                        <ShoppingCart className="hover:cursor-pointer"/>
-                    </Badge>
+            <ul className="h-full flex flex-row items-center relative ">
+                <li onClick={openCheckout} className=" hover:cursor-pointer">
+                    <div className="relative ">
+                        <ShoppingCart/>
+                        
+                        <span className="absolute -top-2 -right-2.5 bg-red-500 text-white text-center text-sm rounded-full h-5 w-5 drop-shadow">{numItems}</span>
+                    </div>
+                    
                     
                 </li>
             </ul>

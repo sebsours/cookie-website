@@ -38,10 +38,10 @@ const CookieCarousel: React.FC<CookieCarousel> = (props:CookieCarousel) => {
                             <p className="tracking-wide mt-5">Our most sought after cookie. Try our Double Trouble cookie.</p>
                         </div>
                         
-                        <button onClick={() => handleButtonClick(2)} className="tracking-wide bg-accent max-w-[600px] w-44 text-white py-2 rounded-3xl">Order now</button>
+                        <button onClick={() => handleButtonClick(2)} className="tracking-wide my-5 bg-accent max-w-[600px] w-44 text-white py-2 rounded-3xl">Order now</button>
                     </div>
 
-                    <div className="flex justify-center h-96 ">
+                    <div className="flex justify-center h-96">
                         <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29va2llfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="A delicious Double Trouble cookie" className="object-cover w-[400px] rounded-lg drop-shadow-lg"/>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ const CookieCarousel: React.FC<CookieCarousel> = (props:CookieCarousel) => {
                             <p className="tracking-wide mt-5">Our limited edition pumpkin spice cookies are now here</p>
                         </div>
                         
-                        <button onClick={() => handleButtonClick(1)} className="tracking-wide bg-accent max-w-[600px] w-44 text-white py-2 rounded-3xl">Order Now</button>
+                        <button onClick={() => handleButtonClick(1)} className="tracking-wide my-5 bg-accent max-w-[600px] w-44 text-white py-2 rounded-3xl">Order Now</button>
                     </div>
                     
                     <div className="flex justify-center h-96 ">
@@ -75,7 +75,7 @@ const CookieCarousel: React.FC<CookieCarousel> = (props:CookieCarousel) => {
                             <p className="tracking-wide mt-5">Order our delicious ice cream cookie sandwich</p>
                         </div>
                         
-                        <button onClick={() => handleButtonClick(3)} className="tracking-wide bg-accent max-w-[600px] w-44 text-white py-2 rounded-3xl">Order now</button>
+                        <button onClick={() => handleButtonClick(3)} className="tracking-wide my-5 bg-accent max-w-[600px] w-44 text-white py-2 rounded-3xl">Order now</button>
                     </div>
 
                     <div className="flex justify-center h-96">
