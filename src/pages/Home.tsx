@@ -22,7 +22,7 @@ const Home = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
     const [openCheckout, setOpenCheckout] = useState(false);
     const [openCookieDialog, setOpenCookieDialog] = useState(false);
-    const [cookieInfo, setCookieInfo] = useState({});
+    const [cookieInfo, setCookieInfo] = useState({name: '', description: '', price: '', img: ''});
     const [numItems, setNumItems] = useState(0);
     const [totalItemsMap, setTotalItemsMap] = useState(new Map());
     const [isSubmitOpen, setIsSubmitOpen] = useState(false);
@@ -219,8 +219,8 @@ const Home = () => {
                     open={openCookieDialog} 
                     handleOpen={handleOpenCookieDialog} 
                     cookieInfo={cookieInfo}
-                    updateMap={updateMap}>
-            </CookieDialog>
+                    updateMap={updateMap}/>
+            
 
             
         </>
