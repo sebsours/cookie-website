@@ -4,43 +4,42 @@
         "list": [
             {
                 "name": "Chocolate Chip",
-                "description": "This is a chocolate chip",
-                "price": "1.01",
+                "description": "A buttery and rich cookie with milk chocolate chips",
+                "price": "1.50",
                 "imgURL": "https://img.freepik.com/free-photo/chocolate-chips-cookies-bitscuit_74190-4814.jpg?size=626&ext=jpg&ga=GA1.1.10503568.1693421821&semt=ais"
             },
             {
                 "name": "Sugar Cookie",
-                "description": "What",
-                "price": "1.00",
-                
+                "description": "Our nice and sweet vanilla cookie",
+                "price": "1.50",
                 "imgURL": "https://img.freepik.com/free-photo/butter-cookies_1339-1792.jpg?size=626&ext=jpg&ga=GA1.1.10503568.1693421821&semt=ais"
             }
             ,
             {
                 "name": "Oatmeal Raisin",
-                "description": "This is a sugar cookie",
-                "price": "1.00",
+                "description": "A cookie topped and layered with oats and raisins",
+                "price": "1.50",
                 "imgURL": "https://img.freepik.com/free-photo/close-up-tasty-cookies_1203-1871.jpg?w=1380&t=st=1693431687~exp=1693432287~hmac=af18aa649c02ebe30cb7d28d18569ad3700eaa885028cc3ecf92c4cd7739655a"
             }
             ,
             {
                 "name": "Snickerdoodle",
-                "description": "This is a sugar cookie",
-                "price": "1.00",
+                "description": "A buttery vanilla cookie with notes of cinnamon",
+                "price": "1.50",
                 "imgURL": "https://img.freepik.com/free-photo/delicious-cookies_144627-21569.jpg?size=626&ext=jpg&ga=GA1.1.10503568.1693421821&semt=ais"
             }
             ,
             {
                 "name": "Peanut Butter",
-                "description": "This is a sugar cookie",
-                "price": "1.00",
+                "description": "A cookie that mixes a blend of our normal base and peanut butter",
+                "price": "1.50",
                 "imgURL": "https://img.freepik.com/free-photo/homemade-cookies_1187-2506.jpg?size=626&ext=jpg&ga=GA1.1.10503568.1693421821&semt=ais"
             }
             ,
             {
                 "name": "White Chocolate & Macadamia",
-                "description": "This is a sugar cookie",
-                "price": "1.00",
+                "description": "A cookie topped with white chocolate chips and macadamia nuts",
+                "price": "1.50",
                 "imgURL": "https://img.freepik.com/free-photo/cookies-isolated_1203-6933.jpg?size=626&ext=jpg&ga=GA1.1.10503568.1693421821&semt=ais"
             }
         ]    
@@ -51,33 +50,33 @@
         "list": [
             {
                 "name": "Double Trouble",
-                "description": "This is a chocolate chunk with a brownie baked in",
-                "price": "1.00",
+                "description": "A cookie with a double serving of chocolate chunks",
+                "price": "2.00",
                 "imgURL": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29va2llfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
             },
             {
                 "name": "Birthday Cake",
-                "description": "This is a sugar cookie",
-                "price": "1.00",
+                "description": "Birthday cake chunks mixed into a vanilla cookie",
+                "price": "2.00",
                 "imgURL": "https://images.unsplash.com/photo-1621236378699-8597faf6a176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1923&q=80"
             }
             ,
             {
-                "name": "M&Ms",
-                "description": "This is a sugar cookie",
-                "price": "1.00",
+                "name": "Chocolate Candy",
+                "description": "A cookie topped bits of candy coated chocolate",
+                "price": "2.00",
                 "imgURL": "https://images.unsplash.com/photo-1590080875897-b7b65b2f73d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTIxfHxjb29raWV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
             },
             {
                 "name": "Mint Chocolate",
-                "description": "This is a sugar cookie",
-                "price": "1.00",
+                "description": "Chocolate covered cookie with hints of mint flavoring",
+                "price": "2.00",
                 "imgURL": "https://img.freepik.com/free-photo/delicious-cookies-arrangement_23-2150688165.jpg?size=626&ext=jpg&ga=GA1.1.10503568.1693421821&semt=ais"
             },
             {
                 "name": "White & Dark Chocolate",
-                "description": "This is a sugar cookie",
-                "price": "1.00",
+                "description": "White and dark chocolate melted and baked into chocolate batter",
+                "price": "2.00",
                 "imgURL": "https://images.unsplash.com/photo-1619149651177-b09092806f1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNvb2tpZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
             }
         ]
@@ -87,20 +86,20 @@
         "list": [
             {
                 "name": "Vegan Chocolate Chip",
-                "description": "This is a vegan chocolate chip",
-                "price": "1.00",
+                "description": "A vanilla cookie with dairy-free chocolate chips",
+                "price": "1.50",
                 "imgURL": "https://img.freepik.com/free-photo/chocolate-chips-cookies-bitscuit_74190-4814.jpg?size=626&ext=jpg&ga=GA1.1.10503568.1693421821&semt=ais"
             },
             {
                 "name": "Vegan Snickerdoodle",
-                "description": "This is a vegan snickerdoodle",
-                "price": "2.00",
+                "description": "Dairy-free cookie with sprinkles of cinnamon",
+                "price": "1.50",
                 "imgURL": "https://img.freepik.com/free-photo/delicious-cookies_144627-21569.jpg?size=626&ext=jpg&ga=GA1.1.10503568.1693421821&semt=ais"
             },
             {
-                "name": "Vegan Banana",
-                "description": "This is a banana cookie",
-                "price": "3.00",
+                "name": "Banana",
+                "description": "Banana bits baked into our cookie base",
+                "price": "1.50",
                 "imgURL": "https://img.freepik.com/free-photo/oat-cookies_1339-2305.jpg?size=626&ext=jpg&ga=GA1.1.10503568.1693421821&semt=ais"
             }
         ]
@@ -110,14 +109,14 @@
         "list": [
             {
                 "name": "Pumpkin Spice",
-                "description": "This is a pumpkin spice cookie",
-                "price": "1.00",
+                "description": "A cookie with flavoring hints of pumpkin and cinnamon",
+                "price": "2.00",
                 "imgURL": "https://images.unsplash.com/photo-1611082191524-1c049443f288?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGNvb2tpZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
             },
             {
                 "name": "Gingerbread",
-                "description": "This is a sugar cookie",
-                "price": "1.00",
+                "description": "A cookie made from a delectable gingebread base",
+                "price": "2.00",
                 "imgURL": "https://img.freepik.com/free-photo/top-view-delicious-cookie-table_23-2150714505.jpg?size=626&ext=jpg&ga=GA1.2.10503568.1693421821&semt=ais"
             }
         ]
@@ -127,20 +126,20 @@
         "list": [
             {
                 "name": "Milk",
-                "description": "This is a cookie1",
-                "price": "15.00",
+                "description": "A bottle of ice cold milk",
+                "price": "2.00",
                 "imgURL": "https://img.freepik.com/free-vector/milk-bottle-realistic_1284-6148.jpg?size=626&ext=jpg&ga=GA1.1.10503568.1693421821&semt=ais"
             },
             {
                 "name": "Coffee",
-                "description": "This is a cookie2",
-                "price": "13.00",
+                "description": "A cup of freshly brewed coffee",
+                "price": "2.50",
                 "imgURL": "https://img.freepik.com/free-vector/realistic-cup-black-brewed-coffee-saucer-vector-illustration_1284-66002.jpg?size=626&ext=jpg&ga=GA1.1.10503568.1693421821&semt=ais"
             },
             {
                 "name": "Water",
-                "description": "This is a cookie2",
-                "price": "13.00",
+                "description": "A bottle of ice cold water",
+                "price": "2.00",
                 "imgURL": "https://img.freepik.com/free-vector/realistic-vector-icon-plastic-bottle-water-isolated-white-background-beverage-drink-mockup_134830-1356.jpg?size=626&ext=jpg&ga=GA1.2.10503568.1693421821&semt=ais"
             }
         ]
@@ -150,26 +149,26 @@
         "list": [
             {
                 "name": "Cookie Cake",
-                "description": "This is a cookie cake",
-                "price": "30.00",
+                "description": "8 slices of our delicious cookie cake",
+                "price": "20.00",
                 "imgURL": "https://img.freepik.com/free-photo/chocolate-brownies-cake-white-plate_74190-5128.jpg?size=626&ext=jpg&ga=GA1.1.10503568.1693421821&semt=ais"
             },
             {
                 "name": "Macaroons",
-                "description": "This is a sugar cookie",
-                "price": "1.00",
+                "description": "One box of our hand-crafted selection of macaroons",
+                "price": "8.00",
                 "imgURL": "https://images.unsplash.com/photo-1519665541-b13188b28be9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTYwfHxzdWdhciUyMGNvb2tpZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
             },
             {
                 "name": "Ice Cream Sandwich",
-                "description": "This is a sugar cookie",
-                "price": "1.00",
+                "description": "A scoop of vanilla ice cream sandwiched between two chocolate chip cookies",
+                "price": "5.00",
                 "imgURL": "https://images.unsplash.com/photo-1559622214-f8a9850965bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGNvb2tpZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
             },
             {
                 "name": "Ice Cream",
-                "description": "This is a sugar cookie",
-                "price": "1.00",
+                "description": "Scoops of vanilla ice cream inside a waffle cone",
+                "price": "3.00",
                 "imgURL": "https://img.freepik.com/free-photo/ice-cream-with-fresh-berries_144627-32234.jpg?size=626&ext=jpg&ga=GA1.1.10503568.1693421821&semt=ais"
             }
         ]

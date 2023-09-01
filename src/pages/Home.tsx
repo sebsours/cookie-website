@@ -26,6 +26,7 @@ const Home = () => {
     const [numItems, setNumItems] = useState(0);
     const [totalItemsMap, setTotalItemsMap] = useState(new Map());
     const [isSubmitOpen, setIsSubmitOpen] = useState(false);
+    const [autoplay, setAutoplay] = useState(true);
 
     const updateMap = (key:string, value:checkoutInfo) => {
         
@@ -73,13 +74,14 @@ const Home = () => {
         else {
             setIsSubmitOpen(false);
             clearMap();
+            setAutoplay(true);
         }
     }
 
     const handleOpenCheckout = () => {
         if (!openCookieDialog){ 
-            console.log(`openCookieDialog`)
             setOpenCheckout(!openCheckout);
+            setAutoplay(!autoplay);
         }
         
     }
@@ -124,7 +126,7 @@ const Home = () => {
                 <Navbar openDrawer={handleOpenDrawer} openCheckout={handleOpenCheckout} numItems={numItems}/>
             </div>
             
-            <CookieCarousel handleCookieInfo={handleCookieInfo} handleOpenCookieDialog={handleOpenCookieDialog}></CookieCarousel>
+            <CookieCarousel handleCookieInfo={handleCookieInfo} handleOpenCookieDialog={handleOpenCookieDialog} autoplay={autoplay}></CookieCarousel>
             <div className='flex flex-col' id='Main-Sections'>
                 <Section 
                         header={cookieData.classics.type} 

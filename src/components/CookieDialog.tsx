@@ -53,7 +53,7 @@ const CookieDialog:React.FC<CookieDialog> = (props:CookieDialog) => {
             </DialogHeader>
 
             <DialogBody className="font-poppins flex flex-col gap-2">
-                <img src={`../assets/${props.cookieInfo.img}`} alt="" />
+                <img src={props.cookieInfo.img} alt="This is a delicious selection" loading="lazy" className="h-96 object-scale-down object-center rounded-lg shadow-md"/>
                 <p>{props.cookieInfo.description}</p>
                 <ul className="flex gap-5 ">
                     <li onClick={() => {
